@@ -4,7 +4,7 @@ import nltk
 import string
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer 
-
+nltk.download('punkt')
 ps = PorterStemmer()
 
 tfidf = pickle.load(open('vectorizer.pkl','rb'))
@@ -53,6 +53,7 @@ if st.button('predict'):
         st.header('Spam')
     else:
         st.header('Not Spam')
+
 
 
 
