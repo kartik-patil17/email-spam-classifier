@@ -6,13 +6,17 @@ from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer 
 
 try:
+    # Check if the 'stopwords' resource is available
     nltk.data.find('corpora/stopwords')
-except nltk.downloader.DownloadError:
+except LookupError:
+    # If not available, download it
     nltk.download('stopwords')
 
 try:
+    # Check if the 'punkt' resource is available
     nltk.data.find('tokenizers/punkt')
-except nltk.downloader.DownloadError:
+except LookupError:
+    # If not available, download it
     nltk.download('punkt')
 
 ps = PorterStemmer()
@@ -63,6 +67,7 @@ if st.button('predict'):
         st.header('Spam')
     else:
         st.header('Not Spam')
+
 
 
 
